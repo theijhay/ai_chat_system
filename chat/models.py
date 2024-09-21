@@ -3,16 +3,18 @@ from django.db import models
 
 """Custom user manager"""
 class UserManager(BaseUserManager):
-    def create_user(self, username, password=None):
+    def create_user(self, username, password=None, tokens=4000):  # Add tokens parameter with a default value
         if not username:
             raise ValueError("The Username must be set")
-        user = self.model(username=username)
+        
+        # Create the user with a default or specified number of tokens
+        user = self.model(username=username, tokens=tokens)
         user.set_password(password)  # Hash the password
         user.save(using=self._db)
         return user
 
-    def create_superuser(self, username, password=None):
-        user = self.create_user(username=username, password=password)
+    def create_superuser(self, username, password=None, tokens=4000):  # Superusers can have tokens too
+        user = self.create_user(username=username, password=password, tokens=tokens)
         user.is_superuser = True
         user.is_staff = True
         user.save(using=self._db)
