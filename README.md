@@ -60,14 +60,14 @@ This is a Django-based API system that allows users to register, log in, chat wi
     python manage.py runserver
 
 
-- The API will be available at http://127.0.0.1:8000/.
+- The API will be available at `http://127.0.0.1:8000/`.
 
 
 ## Usage
 
 1. Access the API documentation:
 
-- Visit the Swagger UI documentation at http://127.0.0.1:8000/api/docs/.
+- Visit the Swagger UI documentation at `http://127.0.0.1:8000/api/docs/`.
 
 ### Running Tests
 Unit tests are included for all endpoints. You can run them using:
@@ -88,4 +88,3 @@ python manage.py test
 2. **Token Expiry:** Implementing token expiry and renewal functionality would enhance the system for real-world usage.
 
 3. **Rate Limiting:** Adding rate limiting would help protect the system from abuse.
-
